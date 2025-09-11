@@ -2,16 +2,16 @@
 	<input type="hidden" name="_csrf" value="<?= FreshRSS_Auth::csrfToken(); ?>" />
 
     <div class="form-group">
-		<label class="group-name" for="domains"><?php echo _t('ext.paywall.domains_behind_a_paywall'); ?></label>
+		<label class="group-name" for="domains"><?= _t('ext.paywall.domains_behind_a_paywall'); ?></label>
 		<div class="group-controls">
-			<textarea name="domains" id="domains"><?php echo $this->getDomains(); ?></textarea>
+			<textarea name="domains" id="domains"><?= $this->getDomains(); ?></textarea>
 		</div>
 	</div>
 
 	<div class="form-group">
-		<label class="group-name" for="title_prefix"><?php echo _t('ext.paywall.title_prefix'); ?></label>
+		<label class="group-name" for="title_prefix"><?= _t('ext.paywall.title_prefix'); ?></label>
 		<div class="group-controls">
-			<input type="text" name="title_prefix" id="title_prefix" value="<?php echo $this->getTitlePrefix(); ?>" />
+			<input type="text" name="title_prefix" id="title_prefix" value="<?= $this->getTitlePrefix(); ?>" />
 		</div>
 	</div>
 
