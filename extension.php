@@ -11,8 +11,10 @@ class PaywallExtension extends Minz_Extension {
         $this->registerTranslates();
 
         if (Minz_Request::isPost()) {
+            $domains = Minz_Request::paramTextToArray('domains', '');
+            sort($domains);
             $configuration = [
-                'domains' => Minz_Request::paramTextToArray('domains', ''),
+                'domains' => $domains,
                 'title_prefix' => Minz_Request::paramString('title_prefix', ''),
             ];
             $this->setUserConfiguration($configuration);
