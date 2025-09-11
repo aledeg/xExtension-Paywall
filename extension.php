@@ -1,13 +1,13 @@
 <?php
 
 class PaywallExtension extends Minz_Extension {
-    public function init() {
+    public function init(): void {
         $this->registerTranslates();
 
         $this->registerHook('entry_before_display', [$this, 'markAsBehindAPaywall']);
     }
     
-    public function handleConfigureAction() {
+    public function handleConfigureAction(): void {
         $this->registerTranslates();
 
         if (Minz_Request::isPost()) {
@@ -38,11 +38,11 @@ class PaywallExtension extends Minz_Extension {
         return $this->getUserConfigurationValue('domains') ?? [];
     }
 
-    public function getDomains() {
+    public function getDomains(): string {
         return implode(PHP_EOL, $this->getDomainsFromConfiguration());
     }
 
-    public function getTitlePrefix() {
+    public function getTitlePrefix(): string {
         return $this->getUserConfigurationValue('title_prefix') ?? '';
     }
 }
