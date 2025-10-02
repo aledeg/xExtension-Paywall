@@ -4,7 +4,11 @@ class PaywallExtension extends Minz_Extension {
     public function init(): void {
         $this->registerTranslates();
 
-        $this->registerHook('entry_before_display', [$this, 'markAsBehindAPaywall']);
+        if (version_compare(FRESHRSS_VERSION, 1.28) >= 0) {
+            $this->registerHook(Minz_HookType::EntryBeforeDisplay, [$this, 'markAsBehindAPaywall']);
+        } else {
+            $this->registerHook('entry_before_display', [$this, 'markAsBehindAPaywall']);
+        }
     }
     
     public function handleConfigureAction(): void {
